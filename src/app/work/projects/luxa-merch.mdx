@@ -1,0 +1,35 @@
+---
+title: "LUXA-Merch: Interactive 3D Customization & On-Demand Fulfillment"
+publishedAt: "2026-07-20"
+summary: "Built an end-to-end interactive workspace with real-time 3D canvas manipulation and dynamic file preparation. Integrated direct-to-S3 asset pipelines to eliminate application server memory bloat."
+tagline: "Three.js · Django ORM · AWS S3 · Asynchronous Queues"
+images:
+  - "/images/projects/project-01/merch_cover_1.jpg"
+  - "/images/projects/project-01/merch_cover_2.jpg"
+  - "/images/projects/project-01/merch_cover_3.jpg"
+team:
+  - name: "Moses Oseh"
+    role: "Chief Technology Officer & Lead Systems Architect"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/moses-oseh/"
+link: "https://www.merch.luxa.ng"
+---
+
+## Overview
+
+LUXA Merch is a full-stack custom apparel and merchandise platform engineered for on-demand customization, dynamic proof rendering, and automated print fulfillment. Designed to handle high-resolution texture mapping and custom vector overlays without degrading performance, the system decouples asset uploads and 3D rendering from the primary Django transaction layer.
+
+## Architectural Highlights
+
+### 1. Interactive 3D Workspace & Viewport Optimization
+- Implemented a lightweight mobile-first **Three.js** canvas allowing non-technical customers to manipulate vector art, text, and decals directly onto 3D apparel mockups.
+- Optimized texture atlasing and polygon counts to guarantee responsive 60 FPS viewport manipulation on mid-range Android and iOS devices.
+
+### 2. Direct-to-S3 Pipelines & Memory Isolation
+Handling large high-res print files (300 DPI multi-megabyte PDFs/PNGs) typically degrades application servers through buffer bloat and memory leaks.
+- Integrated **AWS S3 Presigned URL** pipelines: client assets stream directly to encrypted S3 buckets, bypassing the Django WSGI thread pool entirely.
+- Decoupled high-frequency image compositing and print file compilation into asynchronous worker queues.
+
+### 3. Spatial Fulfillment & Perimeter Routing
+- Incorporated Mapbox spatial lookups with pin-drop coordinate capturing to manage address ambiguities.
+- Configured dynamic delivery perimeter rules and specialized routing protocols for orders outside standard delivery boundaries.

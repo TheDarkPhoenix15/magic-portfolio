@@ -1,0 +1,24 @@
+---
+title: "Zero-Downtime AWS Deployment: Nginx, Gunicorn & S3 Media Pipelines"
+publishedAt: "2026-07-10"
+summary: "Production infrastructure blueprint for serving dynamic web requests and isolating high-frequency storage operations."
+tagline: "AWS Lightsail · Nginx · Gunicorn · AWS S3 · Ubuntu Linux"
+images:
+  - "/images/projects/project-01/systems_breakdown.jpg"
+team:
+  - name: "Moses Oseh"
+    role: "Chief Technology Officer & Lead Systems Architect"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/moses-oseh/"
+---
+
+## Infrastructure Blueprint
+
+Deploying production web workloads in emerging market environments requires resilience, deterministic caching, and isolation between compute and media assets.
+
+### Architecture Topology
+
+- **Web Ingress & SSL Termination:** Nginx reverse proxy configured with HTTP/2, brotli compression, and rate-limiting zones to safeguard internal endpoints.
+- **Application Runtime:** Gunicorn WSGI processes managed via systemd unit files with graceful reload signals (`HUP`) ensuring zero-downtime during codebase migrations.
+- **Media & Static Asset Offloading:** AWS S3 buckets integrated with strict CORS policies, offloading 100% of image rendering bandwidth from EC2 compute instances.
+- **Host Hardening:** Ubuntu Linux host security featuring UFW firewall restrictions, automated TLS renewal via Certbot, and swap space tuning for memory resilience during peak surges.

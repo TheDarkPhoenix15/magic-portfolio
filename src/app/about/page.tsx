@@ -14,6 +14,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
+import GalleryImage from "@/components/about/GalleryImage";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
@@ -235,23 +236,19 @@ export default function About() {
                       )}
                     </Column>
                     {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
+                      <Row
+                        fillWidth
+                        paddingTop="m"
+                        paddingLeft="40"
+                        gap="12"
+                        className={styles.scrollContainer}
+                      >
                         {experience.images.map((image, index) => (
-                          <Row
+                          <GalleryImage
                             key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
+                            alt={image.alt}
+                            src={image.src}
+                          />
                         ))}
                       </Row>
                     )}
@@ -310,23 +307,18 @@ export default function About() {
                       </Row>
                     )}
                     {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
+                      <Row
+                        fillWidth
+                        paddingTop="m"
+                        gap="12"
+                        className={styles.scrollContainer}
+                      >
                         {skill.images.map((image, index) => (
-                          <Row
+                          <GalleryImage
                             key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
+                            alt={image.alt}
+                            src={image.src}
+                          />
                         ))}
                       </Row>
                     )}

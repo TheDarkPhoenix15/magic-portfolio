@@ -94,7 +94,7 @@ export default function Home() {
                     size="m"
                   />
                 )}
-                {about.title}
+                {person.name} · {person.role}
               </Row>
             </Button>
           </RevealFx>
@@ -111,7 +111,7 @@ export default function Home() {
           <Row fillWidth gap="24" marginTop="40" s={{ direction: "column" }}>
             <Row flex={1} paddingLeft="l" paddingTop="24">
               <Heading as="h2" variant="display-strong-xs" wrap="balance">
-                Latest from the blog
+                Architectural Deep Dives
               </Heading>
             </Row>
             <Row flex={3} paddingX="20">

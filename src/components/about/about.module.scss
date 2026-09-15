@@ -17,3 +17,70 @@
         align-self: center;
     }
 }
+
+.scrollContainer {
+    overflow-x: auto;
+    padding-bottom: 16px;
+    
+    &::-webkit-scrollbar {
+        height: 4px;
+        background: transparent;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: transparent;
+        border-radius: 4px;
+    }
+    
+    &:hover::-webkit-scrollbar-thumb {
+        background: var(--neutral-alpha-medium);
+    }
+}
+
+.galleryThumb {
+  position: relative;
+  min-width: 320px;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  cursor: zoom-in;
+  flex-shrink: 0;
+  border: 1px solid var(--neutral-medium);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  cursor: zoom-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.lightboxContent {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

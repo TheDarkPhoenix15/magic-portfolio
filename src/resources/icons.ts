@@ -22,11 +22,30 @@ import {
   PiImageDuotone,
 } from "react-icons/pi";
 
+import { 
+  BiLogoDjango, 
+  BiLogoPython 
+} from "react-icons/bi";
+
+import { 
+  TbApi 
+} from "react-icons/tb";
+
+import {
+  LuLayers3 
+} from "react-icons/lu";
+
 import {
   SiJavascript,
   SiNextdotjs,
   SiFigma,
   SiSupabase,
+  SiPostgresql,
+  SiSqlite,
+  SiUbuntu,
+  SiGunicorn,
+  SiCss,
+  SiHtmx,
 } from "react-icons/si";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaInstagram, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
@@ -64,6 +83,16 @@ export const iconLibrary: Record<string, IconType> = {
   reddit: FaReddit,
   telegram: FaTelegram,
   instagram: FaInstagram,
+  django: BiLogoDjango,
+  python: BiLogoPython,
+  api: TbApi,
+  cloud: LuLayers3,
+  postgresql: SiPostgresql,
+  sqlite: SiSqlite,
+  ubuntu: SiUbuntu,
+  gunicorn: SiGunicorn,
+  css: SiCss,
+  htmx: SiHtmx,
 };
 
 export type IconLibrary = typeof iconLibrary;

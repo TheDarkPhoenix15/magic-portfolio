@@ -1,0 +1,62 @@
+---
+title: "LUXA-Crave: Distributed Campus Food Delivery & Routing Engine"
+publishedAt: "2026-08-01"
+summary: "Engineered a low-latency food delivery backend and dispatch architecture. Built real-time polling workflows, automated order allocation, and an asynchronous driver routing pipeline handling 1,000+ orders in the first 3 months."
+tagline: "Django · HTMX · PostgreSQL · AWS EC2 · Mapbox API"
+images:
+  - "/images/projects/project-01/crave_cover.jpg"
+  - "/images/projects/project-01/crave_cover_2.jpg"
+team:
+  - name: "Moses Oseh"
+    role: "Chief Technology Officer & Lead Systems Architect"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/moses-oseh/"
+link: "https://www.luxa.ng"
+---
+
+## Executive Summary
+
+LUXA Crave was architected to solve the high-friction problem of food delivery and logistics within Nigerian university campus ecosystems. Serving as CTO and Lead Backend Architect, I designed and implemented the end-to-end backend, automated order allocation pipelines, and real-time merchant terminal interfaces.
+
+Within the first 3 months of launch, the platform processed over **1,000+ successful campus orders** with zero transaction discrepancies.
+
+## Core Architectural Pillars
+
+### 1. Low-Latency Dispatch & Asynchronous Driver Routing
+Campus environments present unique last-mile delivery challenges: standard street mapping often fails on unindexed campus pathways. 
+- Integrated **Mapbox API** with coordinate-based pin-drop routing to bypass ambiguous addressing.
+- Implemented real-time polling mechanisms and automated order allocation to match available couriers with nearby vendors in real time.
+- Designed an asynchronous driver routing pipeline that minimizes queue contention and ensures high availability during peak lunch/dinner rushes.
+
+### 2. State Machine & ACID-Compliant Escrow
+Handling high-volume transactions across diverse student and vendor accounts required strict state isolation:
+- Leveraged Django's transactional blocks (`transaction.atomic`) with row-level database locks (`select_for_update`) to prevent race conditions during order acceptance and cancellation.
+- Enforced strict state transitions: `PENDING` → `CONFIRMED` → `IN_PREPARATION` → `DISPATCHED` → `DELIVERED` → `SETTLED`.
+
+```python
+from django.db import transaction
+
+@transaction.atomic
+def transition_order_state(order_id, target_state, courier=None):
+    order = Order.objects.select_for_update().get(id=order_id)
+    if not order.can_transition_to(target_state):
+        raise InvalidStateTransition(f"Cannot transition from {order.status} to {target_state}")
+    
+    order.status = target_state
+    if courier:
+        order.courier = courier
+    order.save(update_fields=['status', 'courier', 'updated_at'])
+    trigger_order_event_stream(order)
+    return order
+```
+
+### 3. Hyper-Efficient Frontend with HTMX
+Instead of maintaining a complex, memory-heavy single-page application (SPA) on student mobile devices, we built the merchant and courier interfaces with **HTMX** and Django templates:
+- Replaced heavyweight client-side state managers with lightweight server-driven DOM fragments.
+- Achieved sub-100ms UI interaction latency on variable 3G/4G campus cellular connections.
+
+## Outcomes & Key Metrics
+
+- **1,000+ Orders Processed:** Flawless operational delivery across initial 3-month rollout.
+- **99.9% Uptime:** Maintained on cost-effective AWS EC2 compute with Nginx reverse proxying.
+- **Zero Double-Spend:** Atomic transaction safeguards prevented duplicate charges and payout collisions.

@@ -19,6 +19,7 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  tagline?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -29,13 +30,56 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  tagline,
 }) => {
   return (
     <Column fillWidth gap="m">
       <Carousel
+        aspectRatio="16 / 9"
         sizes="(max-width: 960px) 100vw, 960px"
         items={images.map((image) => ({
-          slide: image,
+          slide: (
+            <Flex
+              fill
+              position="relative"
+              horizontal="center"
+              vertical="center"
+              background="surface"
+              overflow="hidden"
+              style={{ width: "100%", height: "100%" }}
+            >
+              <img
+                src={image}
+                alt=""
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  filter: "blur(20px) brightness(0.25)",
+                  transform: "scale(1.15)",
+                  pointerEvents: "none",
+                }}
+              />
+              <img
+                src={image}
+                alt={title}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  width: "auto",
+                  height: "100%",
+                  objectFit: "contain",
+                  position: "relative",
+                  zIndex: 1,
+                  display: "block",
+                }}
+              />
+            </Flex>
+          ),
           alt: title,
         }))}
       />
@@ -48,10 +92,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         gap="l"
       >
         {title && (
-          <Flex flex={5}>
+          <Flex flex={5} direction="column" gap="8">
             <Heading as="h2" wrap="balance" variant="heading-strong-xl">
               {title}
             </Heading>
+            {tagline && (
+              <Text variant="label-default-s" onBackground="brand-medium">
+                {tagline}
+              </Text>
+            )}
           </Flex>
         )}
         {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
@@ -78,7 +127,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={link}
                 >
-                  <Text variant="body-default-s">View project</Text>
+                  <Text variant="body-default-s">View work</Text>
                 </SmartLink>
               )}
             </Flex>

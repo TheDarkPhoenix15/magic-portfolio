@@ -1,0 +1,28 @@
+---
+title: "LUXA E-Commerce: Core Multi-Tenant Platform Architecture"
+publishedAt: "2026-07-01"
+summary: "Data normalization and relational database schemas designed for multi-branch retail and campus trade."
+tagline: "Python · Django · PostgreSQL · Web Escrow · REST APIs"
+images:
+  - "/images/projects/project-01/ecommerce_cover_1.jpg"
+team:
+  - name: "Moses Oseh"
+    role: "Chief Technology Officer & Lead Systems Architect"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/moses-oseh/"
+link: "https://www.luxa.ng"
+---
+
+## Overview
+
+The flagship LUXA multi-tenant marketplace platform was designed to bridge trust deficits between campus student buyers and decentralized merchants. Built around an escrow state machine, the system coordinates catalog management, inventory reservation, and merchant branch hierarchies within a unified relational database schema.
+
+## Key Engineering Decisions
+
+### 1. Relational Database Normalization
+- Designed schema layouts in PostgreSQL to cleanly segregate merchant branch profiles, catalog listings, inventory variants, and escrow ledger records.
+- Implemented foreign key constraints and index strategies on high-query composite keys (e.g. `(store_id, is_active, category_id)`), ensuring sub-5ms query times across thousands of SKU variants.
+
+### 2. Secure Escrow Protocol & Payment Webhooks
+- Integrated Paystack payment webhooks with cryptographic signature verification and idempotent payload processing to prevent duplicate account credits.
+- Engineered atomic release flows where payouts to merchant ledgers only trigger when delivery handshakes are cryptographically verified by both parties.

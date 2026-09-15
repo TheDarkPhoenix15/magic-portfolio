@@ -1,0 +1,46 @@
+---
+title: "Event-Driven Order Allocation & Queue Management"
+publishedAt: "2026-08-15"
+summary: "How we eliminated manual order bottlenecks using asynchronous database signals and zero-downtime queue workers."
+tag: "Architecture Case Study"
+author:
+  name: "Moses Oseh"
+  avatar: "/images/avatar.jpg"
+---
+
+## The Bottleneck: Manual Dispatch in Campus Logistics
+
+During initial campus delivery pilots, orders were manually routed or processed via synchronous HTTP request cycles. As peak meal hours hit, synchronous database writes and external API calls (e.g. geocoding, notifications) caused request timeouts, queue contention, and frustrated students.
+
+## Engineering the Solution
+
+To achieve sub-second order dispatch under heavy concurrency, we migrated the dispatch core to an asynchronous, event-driven pattern.
+
+### 1. Database Signal Decoupling
+Rather than blocking the user checkout request while calculating courier matches, the checkout endpoint commits the order in an atomic state and emits an asynchronous internal event.
+
+```python
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from .models import Order
+from .tasks import dispatch_order_to_optimal_courier
+
+@receiver(post_save, sender=Order)
+def order_state_changed(sender, instance, created, **kwargs):
+    if created and instance.status == Order.Status.CONFIRMED:
+        # Enqueue dispatch task out-of-band
+        dispatch_order_to_optimal_courier.delay(instance.id)
+```
+
+### 2. Distance Matrix Calculation
+A background worker processes the queued order:
+- Queries active couriers within a 1.5km geofence radius.
+- Ranks couriers by battery/vehicle status, current active loads, and proximity.
+- Atomically reserves the courier with a 45-second lock timeout.
+
+### 3. Fault-Tolerant Retry Mechanics
+If the selected courier does not accept the assignment within the timeout, the queue worker re-emits the allocation event to the next ranked candidate without locking up the database.
+
+## Results
+- **92% Reduction in Allocation Latency:** Order-to-dispatch assignment plummeted from minutes to under 3 seconds.
+- **Zero Locked Requests:** Web workers remained completely responsive during sudden traffic bursts.

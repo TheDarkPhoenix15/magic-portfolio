@@ -2,21 +2,21 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Moses",
+  lastName: "Oseh",
+  name: `Moses Oseh`,
+  role: "Systems & Full-Stack Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "mosesuga123@gmail.com",
+  location: "Africa/Lagos", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English", "Nigerian Pidgin 😅"], // optional: Leave the array empty if you don't want to display languages
   locale: "en", // BCP 47 language tag for the HTML lang attribute, e.g., 'en', 'ja', 'zh-TW'
 };
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  title: <>Let's Build Reliable Systems</>,
+  description: <>Available for contract development, systems architecture, and backend infrastructure projects.</>,
 };
 
 const social: Social = [
@@ -26,26 +26,26 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/TheDarkPhoenix15",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/moses-oseh/",
     essential: true,
   },
   {
     name: "Instagram",
     icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
+    link: "https://www.instagram.com/d.estiny.oseh_/",
+    essential: true,
   },
   {
     name: "Threads",
     icon: "threads",
-    link: "https://www.threads.com/@once_ui",
-    essential: true,
+    link: "https://www.threads.com/@d.estiny.oseh_",
+    essential: false,
   },
   {
     name: "Email",
@@ -61,7 +61,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Engineering scalable systems, distributed logic, and resilient backends.</>,
   featured: {
     display: true,
     title: (
@@ -69,16 +69,19 @@ const home: Home = {
         <strong className="ml-4">Once UI</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Available for Contract and Remote Engineering
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/luxa-crave",
   },
   subline: (
     <>
-      I'm {person.firstName}, a {person.role.toLowerCase()} at{" "}
-      <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
+      I'm {person.firstName}, a {person.role.toLowerCase()}. <br />Co-founder & Lead Full-Stack Architect at {" "}
+      <a href="https://www.luxa.ng" target="_blank" rel="noopener noreferrer">
+        <Text as="span" size="xl" weight="strong">LUXA</Text>
+      </a> 
+      <br />I bridge mechanical systems logic with scalable cloud infrastructure—specializing in real-time logistics engines, asynchronous queues, and high-concurrency architectures. 
     </>
   ),
 };
@@ -104,8 +107,8 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        {person.firstName} is a {person.location.split("/")[1]?.replace("_", " ")}-based {person.role.toLowerCase()} with a passion for transforming complex challenges
-        into simple, elegant design solutions. Their work spans digital interfaces, interactive
+        I'm an Abuja-based {person.role.toLowerCase()} with a passion for transforming complex ecommerce and system challenges
+        into simple, elegant design solutions. My work spans digital interfaces, interactive
         experiences, and the convergence of design and technology.
       </>
     ),
@@ -115,44 +118,102 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "LUXA-Crave",
+        timeframe: "March, 2026 - Present",
+        role: "Chief Technological Officer, Full-Stack Systems Engineer, UI/UX Designer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Helped to build the Luxa Crave Platform with the goal of solving food delivery in Nigerian 
+            Univeristy Campuses in a systematic an efficient manner. 
+            It has been launched with over 1000 orders processed in the first 3 months.
           </>,
           <>
             Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            iterate up to 100% faster.
           </>,
+          <>
+            Created the UI and UX for the Luxa Crave Platform, which has been praised for its intuitive design and user-friendly interface.
+          </>
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            src: "/images/projects/project-01/crave_cover.jpg",
+            alt: "Crave landing page",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/projects/project-01/crave_cover_2.jpg",
+            alt: "Crave Outlets terminal page",
             width: 16,
             height: 9,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "LUXA-Ecommerce",
+        timeframe: "November, 2025 - Present",
+        role: "Chief Technological Officer, Full-Stack Systems Engineer, UI/UX Designer",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Developed a fully functional MVP e-commerce platform. Complete with user authentication,
+            product management, and web escrow payment integration.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Spearheaded the integration of AI tools into design workflows, enabling designers to
+            iterate up to 100% faster.
           </>,
         ],
-        images: [],
+        images: [
+          {
+            src: "/images/projects/project-01/ecommerce_cover_1.jpg",
+            alt: "Ecommerce landing page",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        company: "LUXA-Merch",
+        timeframe: "September, 2026 - Present",
+        role: "Chief Technological Officer, Full-Stack Systems Engineer, UI/UX Designer",
+        achievements: [
+          <>
+            Participated in developing from scratch, the end-to-end merchandise customization engine for LUXA Merch, delivering an interactive, 
+            consumer-ready web platform capable of processing real-time custom orders. 
+          </>,
+          <>
+            Helped in creating a lightweight, mobile-first 3D visualization interface that allows users to customize, 
+            inspect, and render dynamic product designs in the browser, complemented by integrated AI ideation tools and a "Design Assist" request pipeline to streamline asset creation 
+            for non-technical users.
+          </>,
+          <>
+            Engineered robust spatial logistics and fulfillment workflows to overcome regional last-mile delivery constraints. 
+            Integrated Mapbox APIs with interactive pin-drop coordinate capture to bypass ambiguous address data, 
+            while developing custom routing and dispatch logic to manage specialized delivery protocols for customers located outside standard delivery perimeters.
+          </>,
+        ],
+        images: [
+          {
+            src: "/images/projects/project-01/merch_cover_1.jpg",
+            alt: "Merch Landing page",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/projects/project-01/merch_cover_2.jpg",
+            alt: "Mobile Design Workspace",
+            width: 9,
+            height: 16,
+          },
+          {
+            src: "/images/projects/project-01/merch_cover_3.jpg",
+            alt: "Checkout Page",
+            width: 16,
+            height: 11,
+          },
+        ],
       },
     ],
   },
@@ -161,12 +222,8 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Landmark University",
+        description: <>Studied Mechanical Engineering.</>,
       },
     ],
   },
@@ -175,9 +232,9 @@ const about: About = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
+        title: "Figma UI Design",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>Able to prototype and build mobile and web UI for hyper portable and modular Applications.</>
         ),
         tags: [
           {
@@ -188,13 +245,13 @@ const about: About = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
+            src: "/images/projects/project-01/figma_cover_1.jpg",
             alt: "Project image",
             width: 16,
             height: 9,
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
+            src: "/images/projects/project-01/figma_cover_2.jpg",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -202,34 +259,90 @@ const about: About = {
         ],
       },
       {
-        title: "Next.js",
+        title: "Backend & Systems",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>Python, Django, REST APIs, Relational Data Modeling. Developing reliable backend architecture that can handle concurrent load and scale rapidly.</>
         ),
         tags: [
           {
-            name: "JavaScript",
+            name: "Python",
+            icon: "python",
+          },
+          {
+            name: "Django",
+            icon: "django",
+          },
+          {
+            name: "REST APIs",
+            icon: "api",
+          }
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      },
+      {
+        title: "Databases & Storage",
+        description: (
+          <>PostgreSQL, SQLite, Query Optimization, Database Normalization. Building hyper-scalable and modular database systems.</>
+        ),
+        tags: [
+          {
+            name: "PostgreSQL",
+            icon: "postgresql",
+          },
+          {
+            name: "SQLite",
+            icon: "sqlite",
+          }
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      },
+      {
+        title: "Cloud and Infrastructure",
+        description: (
+          <>AWS (Lightsail, EC2, S3, SES), Linux Administration (Ubuntu), Nginx, Gunicorn, Git. Creating and Managing reliable, production-ready infrastructure and deployment workflows.</>
+        ),
+        tags: [
+          {
+            name: "AWS S3",
+            icon: "cloud",
+          },
+          {
+            name: "Ubuntu",
+            icon: "ubuntu",
+          },
+          {
+            name: "Gunicorn",
+            icon: "gunicorn",
+          }
+
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      },
+      {
+        title: "Dynamic Interfaces & Frontend",
+        description: (
+          <>HTMX, JavaScript, HTML5/Vanilla CSS, Mapbox API, Payment Integration API (Paystack). Designing and deployment of fast, engaging, and user-friendly interfaces (Hyper UI/UX).</>
+        ),
+        tags: [
+          {
+            name: "Javascript",
             icon: "javascript",
           },
           {
-            name: "Next.js",
-            icon: "nextjs",
+            name: "CSS 3",
+            icon: "css",
           },
           {
-            name: "Supabase",
-            icon: "supabase",
+            name: "HTMX",
+            icon: "htmx",
           },
         ],
         // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
+        images: [],
+      }
     ],
   },
 };
@@ -237,8 +350,8 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
+  title: "Systems Architecture & Engineering Notes",
+  description: `Architectural deep dives, case studies, and engineering thoughts by ${person.name}`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
@@ -247,7 +360,7 @@ const work: Work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  description: `Systems and full-stack engineering projects by ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
@@ -255,50 +368,53 @@ const work: Work = {
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
+  title: `Project Gallery – ${person.name}`,
+  description: `Visual systems, architecture workflows, and interface snapshots by ${person.name}`,
   images: [
     {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
+      src: "/images/projects/project-01/systems_breakdown.jpg",
+      alt: "LUXA Systems Architecture & Infrastructure Topology",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
+      src: "/images/projects/project-01/merch_cover_2.jpg",
+      alt: "LUXA Merch – Interactive Mobile 3D Customizer",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
+      src: "/images/projects/project-01/crave_cover.jpg",
+      alt: "LUXA Crave – Campus Food Delivery & Routing Platform",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
+      src: "/images/projects/project-01/figma_cover_1.jpg",
+      alt: "LUXA Merch – Precision Product Specification in Figma",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
+      src: "/images/projects/project-01/merch_cover_3.jpg",
+      alt: "LUXA Merch – Coordinate-Based Delivery & Checkout Flow",
       orientation: "vertical",
     },
     {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
+      src: "/images/projects/project-01/ecommerce_cover_1.jpg",
+      alt: "LUXA E-Commerce – Multi-Tenant Escrow Marketplace",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
+      src: "/images/projects/project-01/crave_cover_2.jpg",
+      alt: "LUXA Crave – Live Kitchen Dispatch & Terminal Dashboard",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
+      src: "/images/projects/project-01/merch_cover_1.jpg",
+      alt: "LUXA Merch – 3D Custom Merchandise Studio",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/projects/project-01/figma_cover_2.jpg",
+      alt: "LUXA UX Systems – Multi-Screen Order & Wallet Dashboards",
+      orientation: "horizontal",
     },
   ],
 };
