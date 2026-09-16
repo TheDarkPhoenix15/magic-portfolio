@@ -1,93 +1,60 @@
-# Magic Portfolio
+# Moses Oseh - Personal Portfolio
 
-Magic Portfolio is a simple, clean, beginner-friendly portfolio template. It supports an MDX-based content system for projects and blog posts, an about / CV page and a gallery.
+Welcome to the source code for my personal portfolio! I am a Full Stack Django Developer based in Lagos, Nigeria. This repository contains the code that powers my digital presence, showcasing my work experience, technical skills, design projects, and blog.
 
-View the demo [here](https://demo.magic-portfolio.com).
+## Tech Stack
 
-![Magic Portfolio](public/images/og/home.jpg)
+This portfolio is built using modern web technologies to ensure a fast, responsive, and accessible experience:
 
-Launch your portfolio on [Aveiro](https://www.aveiro.app/marketplace/spotlight), our managed publishing platform. Update case studies, blog posts and content through MCP from your favorite AI tools.
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **UI System:** [Once UI](https://once-ui.com/)
+- **Styling:** SASS / SCSS Modules
+- **Language:** TypeScript
+- **Content:** MDX (Markdown with React components) for blog posts and project case studies.
 
-## Getting started
+## Project Structure
 
-**1. Clone the repository**
-```
-git clone https://github.com/once-ui-system/magic-portfolio.git
-```
+The project follows a clean, maintainable structure:
 
-**2. Install dependencies**
-```
-npm install
-```
+- `src/app/`: Contains the Next.js page routes (Home, About, Work, Blog, Gallery).
+- `src/components/`: Reusable React components (like the custom Gallery lightbox).
+- `src/resources/`: Centralized configuration files.
+  - `content.tsx`: The single source of truth for all text, bio, social links, and skills across the site.
+  - `once-ui.config.ts`: Configuration for the theme, colors, fonts, and layout.
+- `public/`: Static assets like images, resumes, and icons.
 
-**3. Run dev server**
-```
-npm run dev
-```
+## Local Development
 
-**4. Edit config**
-```
-src/resources/once-ui.config.js
-```
+To run this project locally, follow these steps:
 
-**5. Edit content**
-```
-src/resources/content.js
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/TheDarkPhoenix15/magic-portfolio.git
+   cd magic-portfolio
+   ```
 
-**6. Create blog posts / projects**
-```
-Add a new .mdx file to src/app/blog/posts or src/app/work/projects
-```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-## Documentation
+4. **Open in browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the site. Changes to files will hot-reload instantly.
 
-Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
+## Customizations Made
 
-## Features
+- **Horizontal Scroll Lightbox:** Engineered a custom vanilla React/CSS lightbox (`GalleryImage.tsx`) that bypasses standard UI library limitations, allowing uniform 16:9 thumbnails in a scrollable container that fluidly expand to their true uncropped dimensions upon click.
+- **Scrollbar Styling:** Implemented a minimalist, custom Webkit scrollbar that remains invisible by default and appears as a sleek 4px track on hover.
 
-### Once UI
-- All tokens, components & features of [Once UI](https://once-ui.com)
+## Contact
 
-### SEO
-- Automatic open-graph and X image generation with next/og
-- Automatic schema and metadata generation based on the content file
+Feel free to reach out if you have any questions or want to collaborate!
 
-### Design
-- Responsive layout optimized for all screen sizes
-- Timeless design without heavy animations and motion
-- Endless customization options through [data attributes](https://once-ui.com/docs/theming)
-
-### Content
-- Render sections conditionally based on the content file
-- Enable or disable pages for blog, work, gallery and about / CV
-- Generate and display social links automatically
-- Set up password protection for URLs
-
-### Localization
-- A localized, earlier version of Magic Portfolio is available with the next-intl library
-- To use localization, switch to the 'i18n' branch
-
-## Creators
-
-Lorant One: [Threads](https://www.threads.net/@lorant.one) / [LinkedIn](https://www.linkedin.com/in/lorant-one/)
-
-## Get involved
-
-- Join the Design Engineers Club on [Discord](https://discord.com/invite/5EyAQ4eNdS) and share your project with us!
-- Deployed your docs? Share it on the [Once UI Hub](https://once-ui.com/hub) too! We feature our favorite apps on our landing page.
-
-## License
-
-Distributed under the CC BY-NC 4.0 License.
-- Attribution is required.
-- Commercial usage is not allowed.
-- You can extend the license to [Dopler CC](https://dopler.app/license) by purchasing a [Once UI Pro](https://once-ui.com/pricing) license.
-
-See `LICENSE.txt` for more information.
-
-## Deploy with Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&project-name=portfolio&repository-name=portfolio&redirect-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&demo-title=Magic%20Portfolio&demo-description=Showcase%20your%20designers%20or%20developer%20portfolio&demo-url=https%3A%2F%2Fdemo.magic-portfolio.com&demo-image=%2F%2Fraw.githubusercontent.com%2Fonce-ui-system%2Fmagic-portfolio%2Fmain%2Fpublic%2Fimages%2Fog%2Fhome.jpg)
+- **Email:** mosesuga123@gmail.com
+- **LinkedIn:** [moses-oseh](https://www.linkedin.com/in/moses-oseh/)
+- **GitHub:** [@TheDarkPhoenix15](https://github.com/TheDarkPhoenix15)
