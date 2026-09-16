@@ -100,7 +100,7 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/moses-uga-ddxvhu",
   },
   intro: {
     display: true,
